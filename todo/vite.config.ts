@@ -5,7 +5,10 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     react(), 
-    tailwind(),
   ],
+  css: {
+    devSourcemap: false
+  }
 })
