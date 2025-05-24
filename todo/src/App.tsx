@@ -4,30 +4,14 @@ import viteLogo from '/vite.svg'
 import '../index.css'
 
 export default function App() {
-  const [count, setCount] = useState(0)
+  const [tasks, setTasks] = useState<string[]>([]);
 
   return (
-    <div id="root">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} alt="React logo" />
-        </a>
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="w-1/3 h-2/3 min-h-fit border-1 p-3.5 gap-3 rounded-xl"> 
+        <h1 className="text-2xl text-center pb-8">To do list</h1>
+        <div className="rounded-full border-1 border-dashed w-full p-4">Create a new task</div> 
       </div>
-      <h1>Vite + React</h1>
-      <div> 
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p> 
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
