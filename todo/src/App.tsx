@@ -1,14 +1,28 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import '../index.css'
 
 export default function App() {
   const [tasks, setTasks] = useState<string[]>([]);
+  
+  const handleAdd = (task:string) : void => {
+    if (tasks.includes(task)) {
+      throw Error("Task already in task list!");
+    }
+
+    setTasks(Array.prototype.concat(tasks, [task]));
+  };
+
+  const handleDelete = (task:string) : void => {
+    if (!tasks.includes(task)) {
+      throw Error("Task not in task list!");
+    };
+
+    setTasks(tasks.filter((item) => item != task));
+  }
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <div className="w-1/3 h-2/3 min-h-fit border-1 p-3.5 gap-3 rounded-xl"> 
+      <div className="w-1/3 h-2/3 min-h-fit border-1 px-6 py-6 gap-3 rounded-xl"> 
         <h1 className="text-2xl text-center pb-8">To do list</h1>
         <div className="rounded-full border-1 border-dashed w-full p-4">Create a new task</div> 
       </div>
