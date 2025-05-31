@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Plus } from 'lucide-react'
 import '../index.css'
 
 export default function App() {
@@ -22,9 +23,14 @@ export default function App() {
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <div className="w-1/3 h-2/3 min-h-fit border-1 px-6 py-6 gap-3 rounded-xl"> 
+      <div className="w-1/3 h-2/3 flex flex-col min-h-fit border-1 px-6 py-6 rounded-xl"> 
         <h1 className="text-2xl text-center pb-8">To do list</h1>
-        <div className="rounded-full border-1 border-dashed w-full p-4">Create a new task</div> 
+        <div className="flex flex-col gap-3">
+          <div className="rounded-full border-1 border-dashed hover:border-solid w-full p-4 flex flex-row justify-between">
+            <p>Create a new task</p>
+            <Plus />
+          </div> 
+        </div>
       </div>
     </div>
   )
